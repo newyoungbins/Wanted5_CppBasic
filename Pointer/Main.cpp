@@ -1,6 +1,6 @@
 #include <iostream>
 
-
+// 참조를 한다는 것은 주소를 복사 또는 사용한다는 의미.
 void Release(int* &t)
 {
 	if (t != nullptr)

@@ -6,4 +6,5 @@
   <Project Path="ConsoleInput/ConsoleInput.vcxproj" Id="93c154db-c18a-4820-bb9f-b7e9010a7df1" />
   <Project Path="ConsoleIO/ConsoleIO.vcxproj" Id="62e5eca7-e199-4044-8aa0-4cc09392e419" />
   <Project Path="Pointer/Pointer.vcxproj" Id="c3093533-0255-41aa-8fb0-f85a82d12822" />
+  <Project Path="StudyALON/StudyALON.vcxproj" Id="8d3bf42f-7c65-416c-b9f0-80080882e5e9" />
 </Solution>
