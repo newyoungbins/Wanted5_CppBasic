@@ -5,6 +5,12 @@
 // 일반 변수에 값이 저장된다면, 포인터 변수에는 다른 데이터가 위치한 메모리 주소를 저장할 수 있다.
 // 아직 아무 주소도 가리키지 않는 포인터는 nullptr로 초기화하는 것이 좋다.
 
+// 래퍼런스란?
+// 래퍼런스는 기존 변수의 별칭이다.
+// 래퍼런스를 통해 값을 읽거나 변경하면 원래 변수의 값을 읽거나 변경하게 된다.
+// 래퍼런스는 선언과 동시에 참조할 변수를 지정해야 한다.
+// 한 번 초기화한 래퍼런스는 이후에 다른 변수를 참조하도록 변경할 수 없다.
+
 // 참조를 한다는 것은 주소를 복사 또는 사용한다는 의미.
 void Release(int* &t)
 {
@@ -15,11 +21,11 @@ void Release(int* &t)
 	}
 }
 
-void Swap(const int* const a, int* b)
+void Swap(int* const a, int* const b)
 {
 	int temp = *a;
-	a = b;
-	b = temp;
+	*a = *b;
+	*b = temp;
 }
 
 //래퍼런스를 활용한 Swap 함수.
@@ -35,6 +41,7 @@ int main()
 	int numberA = 10;
 	int numberB = 20;
 	Swap(&numberA, &numberB);
+	SwapRef(numberA, numberB);
 	// 아무주소도 가리키지 않는 포인터를 nullptr로 초기화.
 	void* ptr1 = nullptr;
 	// void* 는 특정한 데이터 타입을 지정하지 않은 범용 포인터다.

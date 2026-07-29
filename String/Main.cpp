@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+//#include <Windows.h>
+#include <string>
 
 // 클래스.
 class Player
@@ -46,13 +48,14 @@ public:
 private:
 	// 이름을 저장할 변수.
 	char* name = nullptr;
+	// char nickName[16] = {};
 };
 
 int main()
 {
 	Player player("RonnieJ");
 	player.PrintName();
-
+	
 	// 문자열
 	// const wchar_t* wName;  // 언리얼에서 쓰는 단어.
 	const char* name = "Ronnie";
@@ -64,6 +67,21 @@ int main()
 
 	// 문자열 크기(문자 개수).
 	size_t length = strlen(name);
+
+	// Wide Character.
+	const wchar_t* wcName = L"RonnieJ";
+
+	// Windows 타입.
+	// WCHAR 
+
+	// STL 문자열 타입.
+	std::string nameString = "Ronnie Jang";
+	std::cout << "nameString Length: " << nameString.size() << "\n";
+	std::cout << nameString << "\n";
+	// std::wstring
+
+	// std::string을 C-Raw string 으로
+	const char* rawName = nameString.c_str();
 
 	std::cout << "string length " << length << "\n";
 
