@@ -15,8 +15,26 @@ void Release(int* &t)
 	}
 }
 
+void Swap(const int* const a, int* b)
+{
+	int temp = *a;
+	a = b;
+	b = temp;
+}
+
+//래퍼런스를 활용한 Swap 함수.
+void SwapRef(int& const a, int& const b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
 int main()
 {
+	int numberA = 10;
+	int numberB = 20;
+	Swap(&numberA, &numberB);
 	// 아무주소도 가리키지 않는 포인터를 nullptr로 초기화.
 	void* ptr1 = nullptr;
 	// void* 는 특정한 데이터 타입을 지정하지 않은 범용 포인터다.
