@@ -7,6 +7,7 @@
   <Project Path="Class/Class.vcxproj" Id="359688bd-c4ac-4bcf-85db-211720fba1ea" />
   <Project Path="ConsoleInput/ConsoleInput.vcxproj" Id="93c154db-c18a-4820-bb9f-b7e9010a7df1" />
   <Project Path="ConsoleIO/ConsoleIO.vcxproj" Id="62e5eca7-e199-4044-8aa0-4cc09392e419" />
+  <Project Path="CopyConstructor/CopyConstructor.vcxproj" Id="d7514b9c-743a-4f36-b599-cbfd0c70740e" />
   <Project Path="Pointer/Pointer.vcxproj" Id="c3093533-0255-41aa-8fb0-f85a82d12822" />
   <Project Path="String/String.vcxproj" Id="a118f42e-b30b-4595-9da7-96b7b98edf1e" />
   <Project Path="StudyALON/StudyALON.vcxproj" Id="8d3bf42f-7c65-416c-b9f0-80080882e5e9" />
