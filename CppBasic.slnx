@@ -11,6 +11,7 @@
   <Project Path="CopyConstructor/CopyConstructor.vcxproj" Id="d7514b9c-743a-4f36-b599-cbfd0c70740e" />
   <Project Path="OperatorOverloading/OperatorOverloading.vcxproj" Id="6b93b182-fef8-4b2b-addc-622f6cab06d4" />
   <Project Path="Pointer/Pointer.vcxproj" Id="c3093533-0255-41aa-8fb0-f85a82d12822" />
+  <Project Path="Static/Static.vcxproj" Id="7eb3be3c-64fd-4367-bfc8-17966920ee8b" />
   <Project Path="String/String.vcxproj" Id="a118f42e-b30b-4595-9da7-96b7b98edf1e" />
   <Project Path="StudyALON/StudyALON.vcxproj" Id="8d3bf42f-7c65-416c-b9f0-80080882e5e9" />
   <Project Path="Virtual/Virtual.vcxproj" Id="d9f6df32-d1db-44de-9742-c1add004871b" />
