@@ -14,5 +14,6 @@
   <Project Path="Static/Static.vcxproj" Id="7eb3be3c-64fd-4367-bfc8-17966920ee8b" />
   <Project Path="String/String.vcxproj" Id="a118f42e-b30b-4595-9da7-96b7b98edf1e" />
   <Project Path="StudyALON/StudyALON.vcxproj" Id="8d3bf42f-7c65-416c-b9f0-80080882e5e9" />
+  <Project Path="Template/Template.vcxproj" Id="edd59127-dbeb-4cbb-b50b-c020391cbf72" />
   <Project Path="Virtual/Virtual.vcxproj" Id="d9f6df32-d1db-44de-9742-c1add004871b" />
 </Solution>
