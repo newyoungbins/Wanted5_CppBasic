@@ -1,3 +1,3 @@
-#pragma once
+﻿#pragma once
 
 void Log(const char*);
