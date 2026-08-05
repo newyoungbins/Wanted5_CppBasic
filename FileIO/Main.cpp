@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <cassert>
 
-int main()
+void CreateConfigFile(const char* filename)
 {
 	// 문자열 쓰기.
 	float framerate = 120.0f;
@@ -12,18 +12,75 @@ int main()
 	// 위의 변수를 포맷 지정해서 문자열로 만들기.
 	// 포맷 : 키 = 값.
 	const int length = 256;
-	char string[length] = {}; 
+	char string[length] = {};
 
 	sprintf_s(string, length, "framerate = %f\nwidth = %d\nheight = %d", framerate, width, height);
 
+	// 메모리의 어떤 데이터를 서식을 지정해서 파일에 기록하는 기능
+	// -> 직렬화(Serialization)
+	// 이 동작을 거꾸로 하는 것이 역직렬화(Deserialization).
+	// File -> Memory..
+
 	FILE* configFile = nullptr;
-	fopen_s(&configFile, "Setting.txt", "wt");
+	fopen_s(&configFile, "filename.txt", "wb");
 	if (!configFile)
+	{
+		return;
+	}
+
+	fwrite(string, sizeof(char), strlen(string) + 1, configFile);
+}
+
+int main()
+{
+	const char* configFileName = "Setting.txt";
+	//CreateConfigFile(configFileName);
+	
+	// 설정 파일 읽기
+	// 파일 로드 -> 읽은 값을 변수로 저장.
+	FILE* configFile = nullptr;
+	fopen_s(&configFile, configFileName, "rt");
+	if (!configFile)		// 만약 컨피그파일이 null이면
 	{
 		return 1;
 	}
 
-	fwrite(string, sizeof(char), strlen(string) + 1, configFile);
+	// 파일에서 읽은 데이터를 저장할 공간.
+	// 동적 할당 (정확한 크기 지정).
+
+	// 파일 끝 위치로 이동 (FP 이동).
+	fseek(configFile, 0, SEEK_END);
+
+	// FP가 가리키는 위치 반환.
+	int fileSize = static_cast<int>(ftell(configFile));
+
+	// 위치 값을 읽고 난 후에 다시 파일을 다루기 위해 첫 위치로 이동.
+	//fseek(configFile, 0, SEEK_SET);
+	rewind(configFile);		// 위에 코드랑 같은 기능을 하는 코드
+
+	// 버퍼 생성.
+	char* configData = new char[fileSize];
+
+	// 생성한 저장소의 값 초기화.
+	memset(configData, 0, fileSize);// 원래 sizeof(char) * fileSize 이케 해야하지만 sizeof(char)가 1이기 때문에 그냥하셈
+
+	// 서식을 지정해서 문자열에서 값 읽기.
+	float framerate = 0.0f;
+	int width = 0;
+	int height = 0;
+
+	sscanf_s(configData, "framerate = %f\nwidth = %d\nheight = %d",
+		&framerate, &width, &height);
+
+	size_t configReadSize =  fread(configData, sizeof(char), fileSize, configFile);
+
+	// 다 사용한 버퍼 해제.
+	delete[] configData;
+	configData = nullptr;
+
+	// 파일 닫기.
+	fclose(configFile);
+	configFile = nullptr;
 
 	// 파일 입출력을 위한 변수.
 	FILE* file = nullptr;
