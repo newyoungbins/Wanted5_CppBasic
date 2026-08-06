@@ -45,7 +45,7 @@ public:
 	}
 
 	// 이동 생성자 - Move Constructor.
-	Actor(Actor&& other) 
+	Actor(Actor&& other) noexcept
 		//:name(other.name)
 	{
 		// 기존 메모리 해제.
