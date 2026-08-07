@@ -66,9 +66,50 @@ private:
 	char* name = nullptr;
 };
 
+// 함수 오버로딩 (같은 이름의 함수가 여러 개 배치되는 형태).
+void Use(int& value)
+{
+	std::cout << "void Use(int& value)\n";
+}
+
+void Use(int&& value)
+{
+	std::cout << "void Use(int&& value)\n";
+}
+
+class Item
+{
+
+};
+
+void Test(Item& item)
+{
+	std::cout << "void Test(Item& item)\n";
+}
+
+void Test(Item&& item)
+{
+	std::cout << "void Test(Item&&& item)\n";
+}
+
+template<typename T>
+void Function(T&& value)
+{
+	Test(std::forward<T>(value));
+}
+
 int main()
 {
-	
+	int value = 10;
+	Use(value);
+	Use(std::move(value));
+
+	Item item;
+	Function(item);
+	Function(Item());
+
+	//std::unique_ptr<Actor> actor1 = std::make_unique<Actor>();
+	//std::unique_ptr<Actor> actor2 = std::move(actor1);
 
 	// count는 L-Value.
 	// L-Value:
@@ -87,4 +128,6 @@ int main()
 	// R-Value Reference(R-Vlaue 참조).
 	//int&& rRef = count	// 오류
 	int&& rRef = 10;
+
+	//int&& rRef2 = rRef;
 }
